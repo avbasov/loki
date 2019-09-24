@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.7-debian
+FROM fluent/fluentd:v1.7.2-debian-1.0
 
 USER root
 WORKDIR /home/fluent
@@ -33,6 +33,7 @@ ENV FLUENTD_CONF="/fluentd/etc/loki/fluentd.conf"
 ENV FLUENTD_OPT=""
 
 ENV LOKI_URL "http://127.0.0.1:13100"
+ENV LOKI_ENV "dev"
 
 # Overwrite ENTRYPOINT to run fluentd as root for /var/log / /var/lib
 ENTRYPOINT ["/fluentd/entrypoint.sh"]
